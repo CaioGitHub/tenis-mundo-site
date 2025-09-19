@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tênis: Esporte, Dicas e Raquetes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+            color: #222;
+        }
+        header {
+            background: #1e824c;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        section {
+            margin: 2rem auto;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 2rem;
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 350px;
+            background: #e0e0e0;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+            height: 100%;
+        }
+        .slide {
+            min-width: 100%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(30,130,76,0.8);
+            color: #fff;
+            border: none;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 2;
+            transition: background 0.2s;
+        }
+        .slider-btn:hover {
+            background: #145a32;
+        }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+        .slider-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #bbb;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .slider-dot.active {
+            background: #1e824c;
+        }
+        @media (max-width: 700px) {
+            section { padding: 1rem; }
+            .slider, .slide { height: 200px; }
+        }
+        h2 {
+            color: #1e824c;
+            margin-top: 0;
+        }
+        ul {
+            padding-left: 1.2em;
+        }
+        .raquetes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .raquete-card {
+            background: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            padding: 1rem;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .raquete-card:hover {
+            transform: translateY(-5px) scale(1.03);
+        }
+        .raquete-card img {
+            width: 100px;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+        .raquete-card h4 {
+            margin: 0.5rem 0 0.2rem 0;
+            color: #145a32;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>O Mundo do Tênis</h1>
+        <p>Descubra tudo sobre o esporte, dicas e as melhores raquetes!</p>
+    </header>
+
+    <section>
+        <h2>Grandes Momentos do Tênis</h2>
+        <div class="slider" id="slider">
+            <div class="slides">
+                <div class="slide" style="background: #222; display: flex; align-items: center; justify-content: center;">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.hpZaejTq1DWeZX6KlEr1oAHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Slide 1" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">
+                </div>
+                <div class="slide" style="background: #222; display: flex; align-items: center; justify-content: center;">
+                    <img src="https://www.atptour.com/-/media/images/news/2024/06/09/18/40/alcaraz-roland-garros-2024-trophy.jpg" alt="Slide 2" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">
+                </div>
+                <div class="slide" style="background: #222; display: flex; align-items: center; justify-content: center;">
+                    <img src="https://images.prismic.io/fft-rg-commun-news/c1b84471-5a7b-4c9b-b828-01187ecf10ca_Novak+Djokovic+Carlos+Alcaraz+DUB_7647-min.JPG?auto=compress,format" alt="Slide 3" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">
+                </div>
+                <div class="slide" style="background: #222; display: flex; align-items: center; justify-content: center;">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.Ot9MhN1bgrkfVcVcICGNkQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Slide 4" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;">
+                </div>
+            </div>
+            <button class="slider-btn prev">&#10094;</button>
+            <button class="slider-btn next">&#10095;</button>
+            <div class="slider-dots"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Sobre o Tênis</h2>
+        <p>
+            O tênis é um esporte praticado em quadras, individualmente ou em duplas, onde os jogadores usam raquetes para rebater uma bola sobre uma rede. É conhecido por sua combinação de técnica, estratégia, resistência física e mental. O tênis é jogado em diferentes superfícies, como saibro, grama e piso duro, cada uma exigindo adaptações no estilo de jogo. Grandes torneios como Wimbledon, Roland Garros, US Open e Australian Open fazem parte do circuito mundial.
+        </p>
+    </section>
+
+    <section>
+        <h2>Dicas para Jogar Tênis</h2>
+        <ul>
+            <li><strong>Domine o saque:</strong> Um bom saque é essencial para iniciar bem o ponto.</li>
+            <li><strong>Movimente-se:</strong> Mantenha-se leve nos pés e pronto para se deslocar rapidamente.</li>
+            <li><strong>Treine o forehand e backhand:</strong> Pratique ambos os golpes para ter mais opções durante o jogo.</li>
+            <li><strong>Observe o adversário:</strong> Identifique padrões e pontos fracos para explorar durante a partida.</li>
+            <li><strong>Cuide do condicionamento físico:</strong> O tênis exige resistência, agilidade e força.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Melhores Raquetes de Tênis</h2>
+        <div class="raquetes">
+            <a href="raquete.html?id=wilson" style="text-decoration:none;color:inherit;">
+                <div class="raquete-card">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.mSSLeWlmAUk2978hlIUfJAHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Wilson Pro Staff">
+                    <h4>Wilson Pro Staff</h4>
+                    <p>Famosa pela precisão e controle, usada por grandes campeões.</p>
+                </div>
+            </a>
+            <a href="raquete.html?id=babolat" style="text-decoration:none;color:inherit;">
+                <div class="raquete-card">
+                    <img src="https://media.babolat.com/image/upload/f_auto,q_auto,c_scale,w_700,h_1001/v1599233900/Website_content/Launch_page/Pure_drive/Pure_Drive-1.jpg" alt="Babolat Pure Drive">
+                    <h4>Babolat Pure Drive</h4>
+                    <p>Excelente potência e versatilidade, ideal para todos os níveis.</p>
+                </div>
+            </a>
+            <a href="raquete.html?id=head" style="text-decoration:none;color:inherit;">
+                <div class="raquete-card">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.aFZeP4XnKdCf7r1e7s6teQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Head Graphene 360">
+                    <h4>Head Graphene 360</h4>
+                    <p>Oferece ótimo equilíbrio entre potência e controle.</p>
+                </div>
+            </a>
+            <a href="raquete.html?id=yonex" style="text-decoration:none;color:inherit;">
+                <div class="raquete-card">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.kCglg2jS-fBhhVgsguQ4qQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Yonex EZONE">
+                    <h4>Yonex EZONE</h4>
+                    <p>Conhecida pelo conforto e tecnologia inovadora.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        const slides = document.querySelector('.slides');
+        const slideCount = slides.children.length;
+        let currentIndex = 0;
+        const prevBtn = document.querySelector('.slider-btn.prev');
+        const nextBtn = document.querySelector('.slider-btn.next');
+        const dotsContainer = document.querySelector('.slider-dots');
+
+        for (let i = 0; i < slideCount; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Ir para slide ' + (i+1));
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+
+        function updateSlider() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+        }
+
+        function goToSlide(idx) {
+            currentIndex = idx;
+            updateSlider();
+        }
+
+        prevBtn.onclick = () => {
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+            updateSlider();
+        };
+        nextBtn.onclick = () => {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateSlider();
+        };
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateSlider();
+        }, 5000);
+    </script>
+</body>
+</html>
